@@ -2,6 +2,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+header('Content-Type: application/json');
+
+
 require 'vendor/autoload.php';
 
 // === CARICAMENTO FILE .env === //
@@ -65,7 +68,7 @@ try {
     // === CONFIGURAZIONE MAIL PRINCIPALE ===
     $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->SMTPDebug = 2;          // Debug SMTP attivo
+    $mail->SMTPDebug = 0;          // Debug SMTP attivo
     $mail->Debugoutput = 'html';   // Mostra log in formato leggibile
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
