@@ -54,6 +54,10 @@ if ($_SESSION['form_submissions'] >= 3) {
 try {
     $mail = new PHPMailer(true);
 
+    $mail->SMTPDebug = 2; // mostra dettagli SMTP
+    $mail->Debugoutput = 'html';
+
+
     // SMTP settings
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
