@@ -1,0 +1,66 @@
+# Attiva il motore di riscrittura
+RewriteEngine On
+
+# Concede l'accesso a tutti (necessario in Apache 2.4)
+Require all granted
+
+# Forza HTTPS (solo in produzione — disattivato in locale)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Rimuove il prefisso www (opzionale)
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Pagina di errore personalizzata
+ErrorDocument 404 /index.html
+
+# Abilita compressione Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cache del browser
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Sicurezza base
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Proteggi i file nascosti (.env, .git, ecc.)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Proteggi il file .htaccess stesso
+<Files .htaccess>
+    Require all denied
+</Files>
+
+# Permetti esecuzione dei file PHP (incluso contact.php)
+<FilesMatch "\.php$">
+    Require all granted
+</FilesMatch>
+
+# Limita dimensione upload
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+# Disattiva la visualizzazione errori in produzione
+php_flag display_errors Off
+php_flag display_startup_errors Off
