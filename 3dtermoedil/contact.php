@@ -108,7 +108,7 @@ try {
     $mailConfirm->Subject = "Conferma ricezione - 3DTERMOEDIL";
     $mailConfirm->Body = "
         <h2>Grazie per averci contattato!</h2>
-        <p>Ciao $nome $cognome,</p>
+        <p>Buongiorno $nome $cognome,</p>
         <p>Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto.</p>
         <p><strong>3D Termoedil</strong></p>
     ";

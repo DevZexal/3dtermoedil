@@ -99,9 +99,9 @@ body {
     transition: all 0.3s ease;
 }
 
-.btn-prenota:hover {
-    background: #C8885EFF;
-    transform: translateY(-2px);
+.btn-prenota:hover{
+    background: #b57246;
+    transform: scale(5);
     box-shadow: 0 5px 15px rgba(217, 120, 71, 0.3);
 }
 
@@ -126,7 +126,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/Background-image.png");
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/Background2.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
