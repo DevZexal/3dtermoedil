@@ -122,9 +122,9 @@ body {
 
 /* Hero Section */
 #hero {
-    min-height: 100vh;
+    min-height: 110vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/Background2.jpg");
     background-size: cover;
@@ -132,8 +132,9 @@ body {
     background-attachment: fixed;
     color: #fff;
     text-align: center;
-    padding: 100px 20px 50px;
+    padding: 150px 20px 50px; /* più spazio superiore */
 }
+
 
 .hero-content {
     max-width: 800px;
@@ -142,6 +143,7 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 500;
+    margin-top: 4rem;
     margin-bottom: 30px;
     animation: fadeInUp 1s ease;
 }
