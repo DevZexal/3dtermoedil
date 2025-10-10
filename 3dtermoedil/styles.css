@@ -5,8 +5,6 @@
     box-sizing: border-box;
 }
 
-
-
 html {
     scroll-behavior: smooth;
 }
@@ -36,43 +34,69 @@ body {
     transition: all 0.3s ease;
 }
 
-#header .container {
+.header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 15px 20px;
 }
 
+/* Logo */
 .logo img {
     height: 60px;
     width: auto;
 }
 
-nav ul {
+/* Header destra: icone + menu */
+.header-right {
     display: flex;
-    list-style: none;
     align-items: center;
-    gap: 30px;
+    gap: 40px; /* distanza tra icone e menu */
 }
 
-nav a {
-    text-decoration: none;
+/* Social icons */
+.header-social {
+    display: flex;
+    gap: 30px; /* distanza tra icone */
+}
+
+.header-social a {
+    font-size: 2rem; /* icone più grandi */
     color: #333;
-    font-weight: 300;
-    transition: color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-nav a:hover {
+.header-social a:hover {
+    transform: scale(1.2);
     color: #C8885EFF;
 }
 
+/* Menu */
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #C8885EFF;
+}
+
+/* Bottone Prenota */
 .btn-prenota {
     background: #c8885e;
     color: #fff !important;
     padding: 12px 30px;
     border-radius: 30px;
     transition: all 0.3s ease;
-
 }
 
 .btn-prenota:hover {
@@ -81,6 +105,7 @@ nav a:hover {
     box-shadow: 0 5px 15px rgba(217, 120, 71, 0.3);
 }
 
+/* Mobile Menu */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -166,7 +191,6 @@ nav a:hover {
     pointer-events: none;
 }
 
-
 .chi-sono-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -251,25 +275,6 @@ nav a:hover {
     font-size: 1rem;
     line-height: 1.7;
 }
-
-/*.servizi-extra {
-    margin-top: 60px;
-    padding: 40px;
-    background: #f5f5f5;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.servizi-extra h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.servizi-extra p {
-    font-size: 1.1rem;
-    color: #666;
-}*/
 
 /* Contatti Section */
 #contatti {
@@ -454,7 +459,7 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    nav {
+    .header-nav {
         display: none;
     }
 
