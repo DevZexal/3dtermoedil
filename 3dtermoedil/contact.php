@@ -4,6 +4,15 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
+// Carica variabili d'ambiente dal file .env
+if (file_exists(__DIR__ . '/.env')) {
+    $lines = file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        putenv($line);
+    }
+}
+
 // Risposta JSON
 header('Content-Type: application/json');
 $response = ['success' => false, 'message' => ''];
@@ -45,18 +54,18 @@ if ($_SESSION['form_submissions'] >= 3) {
 try {
     $mail = new PHPMailer(true);
 
-    // SMTP settings (Gmail esempio)
+    // SMTP settings
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'mailatelisei27@gmail.com';       // La tua email
-    $mail->Password   = 'rjpo rnyl hqmv zdxl';            // Password app generata da Gmail
+    $mail->Username   = getenv('GMAIL_USER');       // Legge dal file .env
+    $mail->Password   = getenv('GMAIL_APP_PASSWORD');
     $mail->SMTPSecure = 'tls';
     $mail->Port       = 587;
 
     // Destinatario
-    $mail->setFrom('mailatelisei27@gmail.com', '3D Termoedil');
-    $mail->addAddress('mailatelisei27@gmail.com', 'Destinatario');
+    $mail->setFrom(getenv('GMAIL_USER'), '3D Termoedil');
+    $mail->addAddress(getenv('GMAIL_USER'), 'Destinatario');
 
     // Reply-To
     $mail->addReplyTo($email, "$nome $cognome");
@@ -81,12 +90,12 @@ try {
     $mailConfirm->isSMTP();
     $mailConfirm->Host       = 'smtp.gmail.com';
     $mailConfirm->SMTPAuth   = true;
-    $mailConfirm->Username   = 'mailatelisei27@gmail.com';
-    $mailConfirm->Password   = 'rjpo rnyl hqmv zdxl';
+    $mailConfirm->Username   = getenv('GMAIL_USER');
+    $mailConfirm->Password   = getenv('GMAIL_APP_PASSWORD');
     $mailConfirm->SMTPSecure = 'tls';
     $mailConfirm->Port       = 587;
 
-    $mailConfirm->setFrom('mailatelisei27@gmail.com', '3D Termoedil');
+    $mailConfirm->setFrom(getenv('GMAIL_USER'), '3D Termoedil');
     $mailConfirm->addAddress($email, "$nome $cognome");
     $mailConfirm->isHTML(true);
     $mailConfirm->Subject = "Conferma ricezione messaggio - 3DTERMOEDIL";

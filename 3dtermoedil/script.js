@@ -134,7 +134,7 @@ const inputs = document.querySelectorAll('input, textarea');
 inputs.forEach(input => {
     input.addEventListener('blur', function() {
         if (this.value.trim() === '' && this.hasAttribute('required')) {
-            this.style.borderColor = 'rgba(255, 100, 100, 0.8)';
+            this.style.borderColor = 'rgba(241,15,15,0.8)';
         } else {
             this.style.borderColor = 'rgba(255,255,255,0.3)';
         }
