@@ -480,6 +480,22 @@ footer {
     /* Nascondi social e nav desktop */
     .header-social {
         display: flex;
+        transform: translateX(50px);
+    }
+
+    .fa-tiktok{
+        font-size: 1.2rem;
+    }
+
+    .header-social a {
+        font-size: 1.5rem; /* icone più grandi */
+        color: #333;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .header-social a:hover {
+        transform: scale(1.2);
+        color: #C8885EFF;
     }
 
     .header-nav {
