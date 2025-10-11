@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 require 'vendor/autoload.php';
 
 // === CARICAMENTO FILE .env === //
-$envFile = __DIR__ . '/admin_data.env'; // assicurati che il file si chiami proprio ".env"
+$envFile = __DIR__ . '/admin_data.env';
 
 if (!file_exists($envFile)) {
     echo "⚠️ ERRORE: File .env non trovato in: $envFile";
@@ -68,8 +68,8 @@ try {
     // === CONFIGURAZIONE MAIL PRINCIPALE ===
     $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->SMTPDebug = 0;          // Debug SMTP attivo
-    $mail->Debugoutput = 'html';   // Mostra log in formato leggibile
+    /*$mail->SMTPDebug = 0;          // Debug SMTP attivo
+    $mail->Debugoutput = 'html';   // Mostra log in formato leggibile*/
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = getenv('GMAIL_USER');

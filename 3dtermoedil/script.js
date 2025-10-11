@@ -1,3 +1,4 @@
+
 // Smooth scrolling per i link di navigazione
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -12,6 +13,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: offsetPosition,
                 behavior: 'smooth'
             });
+
+            // Chiudi il menu mobile dopo il click
+            const nav = document.querySelector('.header-nav');
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            if (nav && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
         }
     });
 });
@@ -22,7 +31,7 @@ const header = document.getElementById('header');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 100) {
         header.style.padding = '10px 0';
         header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
@@ -30,18 +39,27 @@ window.addEventListener('scroll', () => {
         header.style.padding = '15px 0';
         header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
 // Mobile menu toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const nav = document.querySelector('nav');
+const nav = document.querySelector('.header-nav');
 
-if (mobileMenuToggle) {
-    mobileMenuToggle.addEventListener('click', () => {
+if (mobileMenuToggle && nav) {
+    mobileMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
         nav.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
+    });
+
+    // Chiudi il menu quando si clicca fuori
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            nav.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
     });
 }
 
@@ -51,37 +69,37 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const formData = new FormData(this);
-        
+
         // Show loading state
         const submitBtn = this.querySelector('.btn-invia');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'INVIO IN CORSO...';
         submitBtn.disabled = true;
-        
+
         // Send form data
         fetch('contact.php', {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Messaggio inviato con successo! Ti contatteremo presto.');
-                contactForm.reset();
-            } else {
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Messaggio inviato con successo! Ti contatteremo presto.');
+                    contactForm.reset();
+                } else {
+                    alert('Si è verificato un errore. Riprova più tardi o contattaci direttamente.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
                 alert('Si è verificato un errore. Riprova più tardi o contattaci direttamente.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Si è verificato un errore. Riprova più tardi o contattaci direttamente.');
-        })
-        .finally(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        });
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
@@ -122,7 +140,7 @@ document.querySelectorAll('.servizio-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
-    
+
     card.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
     });
@@ -139,9 +157,8 @@ inputs.forEach(input => {
             this.style.borderColor = 'rgba(255,255,255,0.3)';
         }
     });
-    
+
     input.addEventListener('focus', function() {
         this.style.borderColor = '#fff';
     });
 });
-
