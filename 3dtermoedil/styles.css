@@ -61,6 +61,12 @@ body {
     gap: 30px; /* distanza tra icone */
 }
 
+.fa-tiktok{
+    font-size: 1.6rem;
+    position: relative;
+    top: -2px; /* o -5px se vuoi spostarla di più */
+}
+
 .header-social a {
     font-size: 2rem; /* icone più grandi */
     color: #333;
@@ -123,35 +129,35 @@ body {
 
 /* Hero Section */
 #hero {
-    min-height: 110vh;
+    min-height: 90vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/Background2.jpg");
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("images/Background2.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     color: #fff;
     text-align: center;
-    padding: 150px 20px 50px; /* più spazio superiore */
+    padding: 20px 20px 20px;
 }
-
 
 .hero-content {
     max-width: 800px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 2.7rem;
     font-weight: 500;
-    margin-top: 4rem;
+    margin-top: 3rem;
     margin-bottom: 30px;
-    animation: fadeInUp 1s ease;
+    animation: fadeInUp 0.8s ease;
 }
 
 .hero-content p {
+    padding: 25px;
     font-size: 1.2rem;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     line-height: 1.8;
     animation: fadeInUp 1.2s ease;
 }
@@ -473,7 +479,7 @@ footer {
 
     /* Nascondi social e nav desktop */
     .header-social {
-        display: none;
+        display: flex;
     }
 
     .header-nav {
@@ -573,11 +579,11 @@ footer {
     }
 
     .section-title-background {
-        font-size: 2rem;
-        top: 20px;
-        left: 20px;
-        transform: none;
-        white-space: normal;
+        font-size: 3rem;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
     }
 
     .chi-sono-content {
