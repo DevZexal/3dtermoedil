@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -182,7 +182,7 @@ body {
 
 /* Chi Sono Section */
 #chi-sono {
-    padding: 100px 20px;
+    padding: 200px 20px;
     background: #f5f5f5;
     position: relative;
 }
@@ -283,6 +283,26 @@ body {
 .servizio-content p {
     font-size: 1rem;
     line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.btn-scopri-servizio {
+    display: inline-block;
+    background: #d38456;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-scopri-servizio:hover {
+    background: #efa576;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(217, 120, 71, 0.3);
 }
 
 /* Contatti Section */
@@ -390,6 +410,44 @@ body {
     outline: none;
     border-color: #fff;
     background: rgba(255,255,255,0.2);
+}
+
+/* Checkbox privacy/policy */
+.checkbox-group {
+    margin-bottom: 25px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    min-width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    accent-color: #fff;
+}
+
+.checkbox-text {
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transform: translateY(-5px);
+}
+
+.checkbox-text a {
+    color: #fff;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.checkbox-text a:hover {
+    opacity: 0.8;
 }
 
 .btn-invia {
@@ -628,12 +686,35 @@ footer {
     }
 
     .servizi-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
         gap: 20px;
         margin-top: 60px;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .servizi-grid::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .servizi-grid::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .servizi-grid::-webkit-scrollbar-thumb {
+        background: #C8885EFF;
+        border-radius: 10px;
     }
 
     .servizio-card {
+        min-width: 210px;
+        height: 600px;
+        width: 300px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
         margin-bottom: 10px;
     }
 
@@ -762,7 +843,7 @@ footer {
     }
 
     .section-title-background {
-        font-size: 1.5rem;
+        font-size: 1.9rem;
     }
 
     .contatti-text h2 {
@@ -780,3 +861,238 @@ footer {
         font-size: 1rem;
     }
 }
+
+/* Pagine Servizi */
+.page-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("images/Background2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center;
+    padding: 150px 20px 80px;
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.page-hero p {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.servizio-intro {
+    padding: 80px 20px;
+    background: #f5f5f5;
+}
+
+.intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.sottocategorie {
+    padding: 100px 20px;
+    background: #fff;
+    position: relative;
+}
+
+.sottocategorie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.sottocategoria-card {
+    background: #f5f5f5;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.sottocategoria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.sottocategoria-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #d38456, #efa576);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.sottocategoria-icon i {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.sottocategoria-card h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.sottocategoria-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.servizi-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.servizi-list li {
+    font-size: 0.95rem;
+    color: #666;
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.servizi-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #d38456;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.cta-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #d38456, #efa576);
+    color: #fff;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Responsive per pagine servizi */
+@media (max-width: 821px) {
+    .page-hero {
+        min-height: 40vh;
+        padding: 120px 20px 60px;
+        background-attachment: scroll;
+    }
+
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+
+    .page-hero p {
+        font-size: 1.1rem;
+    }
+
+    .servizio-intro {
+        padding: 60px 20px;
+    }
+
+    .intro-content h2 {
+        font-size: 2rem;
+    }
+
+    .intro-content p {
+        font-size: 1rem;
+    }
+
+    .sottocategorie {
+        padding: 60px 20px;
+    }
+
+    .sottocategorie-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 60px;
+    }
+
+    .sottocategoria-card {
+        padding: 30px 20px;
+    }
+
+    .sottocategoria-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .sottocategoria-icon i {
+        font-size: 2rem;
+    }
+
+    .sottocategoria-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .cta-section {
+        padding: 60px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-section p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .page-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .page-hero p {
+        font-size: 1rem;
+    }
+
+    .intro-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .cta-section h2 {
+        font-size: 1.6rem;
+    }
+}
+
