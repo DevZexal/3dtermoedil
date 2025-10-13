@@ -107,7 +107,7 @@ body {
 }
 
 .btn-prenota:hover{
-    background: #e39b6c;
+    background: #efa576;
     transform: scale(5);
     box-shadow: 0 5px 15px rgba(217, 120, 71, 0.3);
 }
@@ -467,10 +467,11 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 821px) {
+
     /* Header mobile */
     .header-container {
-        padding: 10px 15px;
+        padding: 10px 25px;
     }
 
     .logo img {
@@ -480,7 +481,7 @@ footer {
     /* Nascondi social e nav desktop */
     .header-social {
         display: flex;
-        transform: translateX(50px);
+
     }
 
     .fa-tiktok{
@@ -488,7 +489,7 @@ footer {
     }
 
     .header-social a {
-        font-size: 1.5rem; /* icone più grandi */
+        font-size: 1.5rem;
         color: #333;
         transition: transform 0.3s ease, color 0.3s ease;
     }
@@ -573,7 +574,7 @@ footer {
     }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-top: 2rem;
         margin-bottom: 20px;
     }
@@ -740,18 +741,24 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
+
+
+    .header-social{
+        display: flex;
+    }
+
     /* Extra small devices */
     .logo img {
         height: 40px;
     }
 
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
     }
 
     .hero-content p {
-        font-size: 0.95rem;
+        font-size: 0.90rem;
     }
 
     .section-title-background {
@@ -764,5 +771,12 @@ footer {
 
     .servizio-content h3 {
         font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 375px){
+    .hero-content h1 {
+        font-size: 1rem;
     }
 }
