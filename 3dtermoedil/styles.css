@@ -20,7 +20,7 @@ body {
 .container {
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 /* Header */
@@ -39,7 +39,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 15px 40px;
 }
 
 /* Logo */
@@ -155,8 +155,8 @@ body {
 }
 
 .hero-content p {
-    padding: 25px;
-    font-size: 1.2rem;
+    padding: 16px;
+    font-size: 1.3rem;
     margin-bottom: 10px;
     line-height: 1.8;
     animation: fadeInUp 1.2s ease;
