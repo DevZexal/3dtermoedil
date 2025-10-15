@@ -48,6 +48,16 @@ ErrorDocument 404 /index.html
 #Header unset X-Powered-By
 #RequestHeader unset Authorization
 
+# Disabilita signature server (funziona solo se AllowOverride lo consente)
+<IfModule mod_core.c>
+    ServerSignature Off
+</IfModule>
+
+# Rimuovi X-Powered-By (PHP header)
+<IfModule mod_headers.c>
+    Header unset X-Powered-By
+</IfModule>
+
 
 # Proteggi i file nascosti (.env, .git, ecc.)
 <FilesMatch "^\.">
