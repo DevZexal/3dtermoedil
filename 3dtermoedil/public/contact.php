@@ -4,11 +4,10 @@ use PHPMailer\PHPMailer\Exception;
 
 header('Content-Type: application/json');
 
-
-require 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 // === CARICAMENTO FILE .env === //
-$envFile = __DIR__ . '/admin_data.env';
+$envFile = __DIR__ . '/../admin_data.env';
 
 if (!file_exists($envFile)) {
     echo "⚠️ ERRORE: File .env non trovato in: $envFile";
