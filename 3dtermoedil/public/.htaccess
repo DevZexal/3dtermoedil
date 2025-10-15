@@ -42,11 +42,11 @@ ErrorDocument 404 /index.html
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-ServerSignature Off
-ServerTokens Prod
-# Rimuovi header potenzialmente rivelatori
-Header unset X-Powered-By
-RequestHeader unset Authorization
+#ServerSignature Off
+#ServerTokens Prod
+## Rimuovi header potenzialmente rivelatori
+#Header unset X-Powered-By
+#RequestHeader unset Authorization
 
 
 # Proteggi i file nascosti (.env, .git, ecc.)
