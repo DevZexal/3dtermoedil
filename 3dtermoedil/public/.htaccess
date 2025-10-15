@@ -62,6 +62,8 @@ ErrorDocument 404 /index.html
     Require all denied
 </Files>
 
+# Blocca accesso alla cartella vendor
+RedirectMatch 403 ^/vendor/
 
 # Limita dimensione upload
 php_value upload_max_filesize 10M
