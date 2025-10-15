@@ -57,6 +57,12 @@ ErrorDocument 404 /index.html
     Require all granted
 </FilesMatch>
 
+# Proteggo il file di ambiente
+<Files ".env">
+    Require all denied
+</Files>
+
+
 # Limita dimensione upload
 php_value upload_max_filesize 10M
 php_value post_max_size 10M
