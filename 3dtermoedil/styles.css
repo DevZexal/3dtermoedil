@@ -682,14 +682,18 @@ footer {
 
     /* Servizi section mobile */
     #servizi {
-        padding: 60px 20px;
+        padding: 60px 5px;
+    }
+
+    #servizi .container{
+        padding: 20px;
     }
 
     .servizi-grid {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 20px;
+        gap: 0px;
         margin-top: 60px;
         padding-bottom: 20px;
         -webkit-overflow-scrolling: touch;
@@ -711,11 +715,14 @@ footer {
 
     .servizio-card {
         min-width: 210px;
-        height: 600px;
-        width: 300px;
+        height: 650px;
+        width: 250px;
         flex-shrink: 0;
         scroll-snap-align: center;
         margin-bottom: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     }
 
     .servizio-image {
@@ -723,7 +730,7 @@ footer {
     }
 
     .servizio-content {
-        padding: 20px;
+        padding: 30px;
     }
 
     .servizio-content h3 {
@@ -731,7 +738,7 @@ footer {
     }
 
     .servizio-content p {
-        font-size: 0.95rem;
+        font-size: 0.90rem;
     }
 
     /* Contatti section mobile */
@@ -1031,7 +1038,7 @@ footer {
     }
 
     .intro-content h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .intro-content p {
@@ -1075,6 +1082,10 @@ footer {
 
     .cta-section p {
         font-size: 1.1rem;
+    }
+
+    .section-title-background{
+        font-size: 1.5rem;
     }
 }
 

@@ -23,8 +23,6 @@ foreach ($lines as $line) {
 }
 
 
-
-
 // Risposta JSON
 header('Content-Type: application/json');
 $response = ['success' => false, 'message' => ''];
@@ -74,7 +72,7 @@ try {
     $mail->SMTPAuth = true;
     $mail->Username = getenv('GMAIL_USER');
     $mail->Password = getenv('GMAIL_APP_PASSWORD');
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // invece di 'tls'
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
 
     $mail->setFrom(getenv('GMAIL_USER'), '3D Termoedil');
